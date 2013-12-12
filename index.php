@@ -15,9 +15,9 @@ body {background-color:#333;} /* Set this to color of the images  */
 </style>
 </head>
 <body>
-	 <div class="container">
+     <div class="container">
 
-	 	<div class="flexslider">
+        <div class="flexslider">
 
             <ul class="slides">
 
@@ -40,7 +40,6 @@ body {background-color:#333;} /* Set this to color of the images  */
             </ul>
 
         </div>
-
      </div>
 </body>
 
@@ -54,8 +53,8 @@ body {background-color:#333;} /* Set this to color of the images  */
     $(window).load(function() {
       $('.flexslider').flexslider({
 
-		slideshow: false,
-		animationSpeed: 0
+        slideshow: false,
+        animationSpeed: 0
       });
     });
 
