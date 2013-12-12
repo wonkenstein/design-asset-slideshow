@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>McDonald's Monopoly 2014</title>
+    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
+
+<style type="text/css">
+body {background-color:#1C0125;}
+.flex-direction-nav a {background-color:#FFF; color:#FFF; height:28px; width:27px;}
+
+</style>
+</head>
+<body>
+	 <div class="container">
+
+	 	<div class="flexslider">
+
+            <ul class="slides">
+
+                <?php
+                $dir = 'designs';
+                if ($handle = opendir($dir)) {
+                    while (false !== ($entry = readdir($handle))) {
+                        if (!preg_match('#^\..*#', $entry)) {
+                            $files[] = $entry;
+                        }
+                    }
+                    closedir($handle);
+                    sort($files);
+                    foreach ($files as $f) {
+                        echo '<li><img src="' . $dir . '/' . $f . '" /></li>' . "\n";
+                    }
+                }
+                ?>
+            </ul>
+
+        </div>
+
+     </div>
+</body>
+
+<!-- jQuery -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<!-- FlexSlider -->
+<script type="text/javascript" src="js/jquery.flexslider.js"></script>
+<script type="text/javascript">
+
+    $(window).load(function() {
+
+      $('.flexslider').flexslider({
+
+		slideshow: false,
+		animationSpeed: 0
+      });
+    });
+
+</script>
+
+<!-- NavMenu -->
+<script type="text/javascript">
+
+    $(function() {
+        var pull        = $('#pull');
+            menu        = $('header nav ul');
+            menuHeight  = menu.height();
+
+        $(pull).on('click', function(e) {
+            e.preventDefault();
+            menu.slideToggle();
+        });
+    });
+    $(window).resize(function(){
+    var w = $(window).width();
+    if(w > 320 && menu.is(':hidden')) {
+        menu.removeAttr('style');
+    }
+});
+
+</script>
+
+</html>
